@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Lore Book | Cyprès Archipelago Pack</title><link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap" rel="stylesheet"><style>
+:root{--tx:#eef3ee;--gold:#ffd84a}
+*{box-sizing:border-box}
+html{background:#04080b}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#0b1a20,#04080b 62%);color:var(--tx);font-family:"Red Rose",system-ui,sans-serif;line-height:1.7;padding:44px 16px 56px;display:flex;flex-direction:column;align-items:center;overflow-x:hidden}
+#st{position:fixed;inset:0;pointer-events:none;z-index:0}
+.slab{position:relative;z-index:1;width:min(640px,100%);padding:46px 44px 40px;border-radius:16px;margin-top:6px;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='4' seed='2'/%3E%3CfeDiffuseLighting surfaceScale='2.2' diffuseConstant='1' lighting-color='%23c4c9c9'%3E%3CfeDistantLight azimuth='235' elevation='58'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23f)'/%3E%3C/svg%3E"),linear-gradient(#6a6f6f,#3d4243);background-blend-mode:multiply;border:1px solid #181c1d;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -3px 8px rgba(0,0,0,.35),0 18px 40px rgba(0,0,0,.55)}
+.slab>*{position:relative;z-index:2}
+.moss{position:absolute;left:0;top:-14px;width:100%;height:60px;z-index:3!important;pointer-events:none;overflow:visible}
+.sp{position:absolute;right:26px;bottom:22px;z-index:1!important;pointer-events:none;opacity:.95}
+h1{margin:0 0 6px;text-align:center;font:700 1.9rem/1.25 "Red Rose",serif;letter-spacing:.04em;color:#e8ede6;text-shadow:0 -1px 0 rgba(0,0,0,.75),0 1px 0 rgba(255,255,255,.22),0 0 1px #000}
+.sub{text-align:center;color:#ffe08a;font-style:italic;letter-spacing:.08em;font-size:.86rem;margin-bottom:18px;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+.rule{height:2px;margin:6px auto 24px;width:72%;background:linear-gradient(90deg,transparent,#0c0f10 20%,#0c0f10 80%,transparent);box-shadow:0 1px 0 rgba(255,255,255,.16)}
+p{margin:0 0 16px;font-size:.98rem;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.parts{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 20px}
+.parts span{font-size:.78rem;padding:4px 12px;border-radius:99px;background:rgba(10,14,15,.5);border:1px solid rgba(255,255,255,.14);color:#f2e7bd}
+.cr{font-size:.86rem;color:#d8dfd6}
+.lk{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+a.b{color:#fff3c8;text-decoration:none;font-weight:700;font-size:.86rem;padding:7px 16px;border-radius:99px;background:rgba(10,14,15,.55);border:1px solid rgba(255,224,138,.5);transition:background .2s,color .2s}
+a.b:hover{background:rgba(255,224,138,.18);color:#fff}
+.nav{position:relative;z-index:1;margin-top:22px;display:flex;gap:18px;font-size:.82rem}
+.nav a{color:#b9c4bd;text-decoration:none;border-bottom:1px solid rgba(185,166,118,.4);padding-bottom:1px}
+.nav a:hover{color:#ffe08a}
+@media(max-width:560px){.slab{padding:38px 22px 34px}h1{font-size:1.5rem}.sp{opacity:.7;transform:scale(.8);transform-origin:right bottom}}
+</style></head><body>
+<canvas id="st"></canvas>
+<main class="slab"><svg class="moss" aria-hidden="true"></svg><svg class="sp" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true"></svg>
+<h1>The Lore Book</h1><div class="sub">Cyprès Archipelago Pack</div><div class="rule"></div>
+<p>This is the lore book for my Wolvden pack, the Cyprès Archipelago Pack.</p>
+<p>It is a small interactive page with five parts. Everything in it was written and made by me, and I add to it as the story grows.</p>
+<div class="parts"><span>Map</span><span>Timeline</span><span>Keepers of the Coil</span><span>Life's Threads</span><span>Fennsael</span></div>
+<p class="cr">Created by Fallowe. © 2026. All rights reserved. Please do not copy or reuse anything here without permission.</p><div class="lk"><a class="b" href="https://www.wolvden.com/profile/145906" target="_blank" rel="noopener">Wolvden</a><a class="b" href="https://discord.gg/ZQDz8ANTUR" target="_blank" rel="noopener">Discord</a></div>
+</main>
+<nav class="nav"><a href="./">Back to the pack</a><a href="license.html">License</a></nav>
+<script>
+(function(){
+var NS='http://www.w3.org/2000/svg';
+function RNG(s){return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+// stars
+var c=document.getElementById('st'),x=c.getContext('2d'),r0=RNG(7);
+function stars(){c.width=innerWidth;c.height=innerHeight;x.clearRect(0,0,c.width,c.height);for(var i=0;i<90;i++){var px=r0()*c.width,py=r0()*c.height,s=r0();x.fillStyle='rgba(255,246,214,'+(.15+s*.5).toFixed(2)+')';x.beginPath();x.arc(px,py,.4+s*1.1,0,7);x.fill()}}
+stars();
+// spiral
+var sp=document.querySelector('.sp');if(sp){var r=RNG(506),pts=[];for(var t=0;t<=3.1*Math.PI*2;t+=.12){var rr=2.5+t*1.45;pts.push([60+Math.cos(t)*rr,60+Math.sin(t)*rr])}
+var D='M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('L');
+function sh(dx,dy,w,col,o){el('path',{d:D,transform:'translate('+dx+' '+dy+')',fill:'none',stroke:col,'stroke-width':w,'stroke-linecap':'round','stroke-linejoin':'round',opacity:o},sp)}
+sh(1.2,1.4,3.6,'#ffffff',.2);sh(0,0,3.8,'#0f1314',.9);sh(-.5,-.6,1.5,'#000',.55);
+for(var i=0;i<14;i++){var p=pts[Math.floor(pts.length*(.45+r()*.55))];el('circle',{cx:p[0]+(r()-.5)*2,cy:p[1]+(r()-.5)*2,r:(1+r()*1.4).toFixed(1),fill:['#5f8f45','#7aa655','#4f7f3c'][i%3],opacity:.9},sp)}}
+// moss along the top edge
+var host=document.querySelector('.moss'),slab=document.querySelector('.slab');
+function moss(){host.innerHTML='';var W=slab.offsetWidth,r=RNG(31),TOP=14;host.setAttribute('viewBox','0 0 '+W+' 60');
+var cols=['#3f6a35','#4f7f3c','#5f8f45','#6f9d52','#2f5a2e'];
+var s=r()*W*.12,e=W*(.72+r()*.28),cl=[];
+for(var i=0,n=4+Math.floor(W/80);i<n;i++)cl.push([s+r()*(e-s),20+r()*46,.5+r()*.7]);
+var d='M'+s.toFixed(1)+' '+(TOP+3);
+for(var xx=s;xx<=e;xx+=6){var h=0;for(var j=0;j<cl.length;j++){var q=(xx-cl[j][0])/cl[j][1];h+=cl[j][2]*Math.exp(-q*q*2)}var ta=Math.min(1,(xx-s)/18,(e-xx)/18);d+='L'+xx.toFixed(1)+' '+(TOP-(2+h*8+r()*1.6)*ta).toFixed(1)}
+d+='L'+e.toFixed(1)+' '+(TOP+3)+'Z';
+el('path',{d:d,fill:'#2f5a2e',opacity:.95},host);
+for(var i=0;i<W/6;i++){var px=s+r()*(e-s),py=TOP-r()*7;el('circle',{cx:px.toFixed(1),cy:py.toFixed(1),r:(1.3+r()*2.2).toFixed(1),fill:cols[Math.floor(r()*cols.length)],opacity:.9},host)}
+for(var i=0;i<4;i++){var px=s+14+r()*(e-s-28),py=TOP-4-r()*4,g=el('g',{transform:'translate('+px.toFixed(1)+' '+py.toFixed(1)+') scale('+(.9+r()*.5).toFixed(2)+')'},host);
+for(var k=0;k<5;k++){el('ellipse',{cx:0,cy:-2.4,rx:1.5,ry:2.3,fill:'#fff6e4',transform:'rotate('+(k*72)+')',opacity:.95},g)}el('circle',{r:1.3,fill:'#ffd84a'},g)}
+for(var i=0;i<7;i++){var px=s+8+r()*(e-s-16),py=TOP-3-r()*3;el('circle',{cx:px.toFixed(1),cy:py.toFixed(1),r:1.1,fill:'#fffbe8',opacity:.9},host)}}
+moss();addEventListener('resize',function(){moss();stars()});
+})();
+</script></body></html>
