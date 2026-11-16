@@ -1,6 +1,8 @@
-![Cyprès Archipelago Pack](banner.png)
+[![Cyprès Archipelago Pack](banner.png)](https://trashgremlinx.github.io/CAP-Fallowe/)
 
 # Cyprès Archipelago Pack
+
+### [Read our lore book](https://trashgremlinx.github.io/CAP-Fallowe/)
 
 This is the lore book for my Wolvden pack, the Cyprès Archipelago Pack.
 
